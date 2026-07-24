@@ -1,0 +1,193 @@
+You are a senior software archaeologist. Your task is to create a comprehensive, evidence-based snapshot of this project as it exists right now.
+
+Goal:
+Produce a complete project state snapshot that would allow another engineer or agent to understand the project clearly, including its purpose, architecture, framework-specific details, configuration, data model, workflows, and tiny operational details.
+
+Rules:
+- Do not modify code unless explicitly told to.
+- Do not guess. If something is unknown, mark it as UNKNOWN and say what evidence is missing.
+- Prefer concrete evidence: file paths, config keys, dependency manifests, scripts, commands, and short citations.
+- Do not paste secrets. List secret/env variable names only, never values.
+- Be exhaustive but organized. Tiny details matter.
+- If a framework is detected, adapt the snapshot to include framework-specific details relevant to that framework.
+
+Process:
+1. Inspect the repository root and identify:
+   - project name
+   - primary language(s)
+   - framework(s), if any
+   - package manager(s)
+   - build system
+   - runtime version requirements
+   - monorepo or single app structure
+   - entrypoints
+   - important top-level directories
+
+2. Capture version control state:
+   - current branch
+   - latest commit hash
+   - commit message
+   - uncommitted changes
+   - ignored files that matter, if discoverable
+   - recent relevant tags if useful
+
+3. Capture dependency state:
+   - direct dependencies
+   - pinned versions or lockfile status
+   - dev dependencies
+   - optional dependencies
+   - dependency purpose where inferable
+   - outdated or conflicting dependencies if obvious
+
+4. Capture configuration:
+   - settings files
+   - environment variable names
+   - required vs optional config
+   - default values if non-sensitive
+   - config loading order
+   - feature flags
+   - local/dev/prod differences
+
+5. Capture architecture:
+   - high-level system overview
+   - major modules/apps/packages
+   - request/response flow or main execution flow
+   - background jobs
+   - scheduled tasks
+   - external services
+   - databases
+   - caches
+   - queues
+   - file storage
+   - APIs
+   - third-party integrations
+
+6. Capture data model:
+   - database engine
+   - models/tables/collections
+   - important fields
+   - relationships
+   - constraints
+   - indexes
+   - migrations state
+   - seed data/fixtures
+   - data lifecycle notes
+
+7. Capture interfaces:
+   - web routes
+   - API endpoints
+   - CLI commands
+   - admin interfaces
+   - UI pages/screens if applicable
+   - webhooks
+   - event handlers
+   - public exports
+
+8. Capture testing and quality:
+   - test framework
+   - test locations
+   - how to run tests
+   - coverage setup
+   - lint/format tools
+   - type checking
+   - CI checks
+
+9. Capture operations:
+   - how to install
+   - how to run locally
+   - how to build
+   - how to deploy
+   - how to run migrations
+   - how to run background workers
+   - logging setup
+   - monitoring/observability
+   - backup/restore notes if visible
+
+10. Capture conventions and project quirks:
+   - naming conventions
+   - folder structure rationale if inferable
+   - custom utilities/helpers
+   - repeated patterns
+   - dead code
+   - TODO/FIXME/HACK notes
+   - known risks
+   - inconsistencies
+   - missing documentation
+
+Framework adaptation:
+If a framework is detected, add a framework-specific appendix.
+
+For Django projects, include:
+- Django version
+- Python version
+- installed apps
+- middleware
+- URLConf structure
+- settings modules
+- environment variables used by settings
+- database configuration engine
+- models per app
+- admin registrations
+- migrations status
+- templates structure
+- static/media setup
+- context processors
+- signals
+- custom management commands
+- DRF endpoints/serializers/viewsets if present
+- Celery/tasks if present
+- cache configuration
+- email configuration
+- storage configuration
+- authentication/permissions setup
+- fixtures/seed data
+- manage.py commands needed to run the project
+- any Django-specific gotchas
+
+For non-Django frameworks, include the equivalent framework-specific details:
+- routing
+- state management
+- components/pages
+- services/controllers
+- ORM/models
+- middleware/plugins
+- build configuration
+- framework conventions
+- deployment adapters
+
+Output:
+Create a single Markdown document titled: PROJECT SNAPSHOT
+
+Use these sections:
+1. Snapshot metadata
+2. Project overview
+3. Tech stack
+4. Repository structure
+5. Version control state
+6. Dependencies
+7. Configuration and environment
+8. Architecture
+9. Data model
+10. Interfaces and endpoints
+11. Background jobs and scheduled tasks
+12. External integrations
+13. Testing and quality
+14. Local development workflow
+15. Build and deployment
+16. Observability and operations
+17. Security considerations
+18. Conventions and patterns
+19. Known issues, risks, and TODOs
+20. Framework-specific appendix
+21. Evidence index
+
+Evidence index requirement:
+For important claims, cite evidence like:
+- `path/to/file.py:123`
+- `pyproject.toml`
+- `package.json`
+- `settings/base.py`
+- command output summary
+
+Final instruction:
+Be comprehensive enough that a competent engineer could reconstruct the project’s current state, purpose, and workflows from this snapshot without needing to ask many follow-up questions.
